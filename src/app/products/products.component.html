@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="pdcts-container">
+    <div class="row mb-4">
+      <div class="col-4">
+        <a (click)='gridView()' class='view-control'>
+          <i class="fas fa-th txt-primary"></i>
+        </a>
+        <a (click)='listView()' class='view-control'>
+          <i class="fas fa-bars txt-primary"></i>
+        </a>
+      </div>
+      <div class="col-6">
+        <input type="text" [(ngModel)]="filteredStatus" placeholder="search our prodcts">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 mb-5" *ngFor="let pdct of pdctList | pdctFilter:filteredStatus:'category'" data-type = 'pdct-list-view'>
+        <app-single-pdct [product] = pdct [pdctListView] = 'pdctListview'></app-single-pdct>
+      </div>
+    </div>
+  </div>
+</div>
+

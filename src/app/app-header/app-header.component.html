@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg py-3 mb-5">
+  <div class="container-fluid">
+    <a class="navbar-brand txt-white"
+    routerLink='/'><b>LOGO</b></a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li ngbDropdown class="d-inline-block">
+          <button class="btn"
+            id="dropdownBasic1"
+            ngbDropdownToggle>
+            <i class="fas fa-shopping-cart"></i> 
+            <span class="cart-count-span txt-white"> {{ cartCount }} </span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="cart-content pb-0">
+            <div class="items-list overflow-auto" *ngIf="cartListLength>0; else emptyCart">
+              <div *ngFor="let item of cartList" ngbDropdownItem class="cart-item">
+                <div class="media">
+                  <img class="mr-3" src={{item.product.img}} alt="Generic placeholder image">
+                  <div class="media-body">
+                    <p class="mt-0">
+                      {{ item.product.name }}
+                    </p>
+                    QTY: {{ item.count }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template class="empty-cart-msg" #emptyCart>
+              <p class='px-1'>The cart is currently empty</p>
+            </ng-template>
+            <div class="cart-options text-center">
+              <span *ngIf='cartTotalSum>0'><b>grand total: {{ cartTotalSum }} EGP</b></span>
+              <button class="btn primaryBtn mt-3" ngbDropdownItem
+              routerLink='/cart'>view cart</button>
+            </div>
+          </div>
+        </li>
+        <li ngbDropdown class="d-inline-block">
+          <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
+            profile image
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>profile</button>
+            <button ngbDropdownItem (click)='onSignout()'>sign out</button>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link txt-white"
+              routerLink='/signin'
+              [queryParams]="{ redirect: 'home' }"
+              >Sign In <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

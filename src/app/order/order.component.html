@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="form-container shadow-sm p-4 m-auto">
+    <form [formGroup]='orderForm' (ngSubmit)='onSubmitOrder(orderForm)'>
+      <div class="form-group" formGroupName='userAddressData'>
+        <label>
+          Enter address
+        </label>
+          <input type='text' formControlName='userAddress' class="form-control">
+        <!-- <p *ngIf='!signupForm.get("emailData.userEmail").valid && signupForm.get("emailData.userEmail").touched'>wrong email</p> -->
+      </div>
+      <div class="form-group" formGroupName='userPhoneData'>
+        <label>
+          Enter phone number
+        </label>
+          <input type='text' formControlName='userPhone' class="form-control">
+      </div>
+      <div class="form-group" formGroupName='userEmailData'>
+        <label>
+          Enter email
+        </label>
+          <input type='email' formControlName='userEmail' class="form-control">
+      </div>
+      <!-- <p *ngIf='!signupForm.get("passwordData").valid && signupForm.get("passwordData").touched'>wrong password</p> -->
+      <button type="submit" class="btn primaryBtn" [disabled]="signupForm.invalid">SIGN UP</button>
+    </form>
+  </div>
+</div>
+    

@@ -1,0 +1,22 @@
+@import '../../assets/scss/_variables.scss';
+@import '../../assets/scss/_placeholders.scss';
+
+.txt-white {
+  @extend %whiteTxt;
+}
+.txt-dark {
+  @extend %darkTxt;
+}
+.txt-primary {
+  @extend %primaryTxt;
+}
+.primaryBtn {
+  @extend %primaryBtn;
+}
+
+.form-container {
+    width: 50%;
+}
+input {
+    width: 100%;
+}

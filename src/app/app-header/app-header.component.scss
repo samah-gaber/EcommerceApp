@@ -1,0 +1,55 @@
+@import '../../assets/scss/_variables.scss';
+@import '../../assets/scss/_placeholders.scss';
+
+.txt-white {
+    @extend %whiteTxt;
+}
+.txt-dark {
+    @extend %darkTxt;
+}
+.txt-primary {
+    @extend %primaryTxt;
+}
+.primaryBtn {
+    @extend %primaryBtn;
+}
+nav {
+    background-color: $primaryColor;
+    // padding: 3rem 0;
+}
+.cart-item {
+    position: relative;
+    .fa-times-circle {
+        position: absolute;
+        top: 0%;
+        right: 3%;
+        display: none;
+    }
+    &:hover {
+        .fa-times-circle {
+            display: block;
+        }
+    }
+    .media {
+        img {
+            max-width: 50px;
+            max-height: 50px;
+        }
+    }
+}
+.items-list {
+    max-height: 300px;
+}
+.cart-options {
+    background-color: #fff;
+    button {
+        color: #fff;
+    }
+}
+.fa-shopping-cart {
+    color: $whiteColor;
+    font-size: 20px;
+}
+.cart-count-span {
+    font-size: 20px;
+}

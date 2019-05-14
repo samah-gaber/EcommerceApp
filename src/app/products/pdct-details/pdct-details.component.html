@@ -1,0 +1,48 @@
+<div class="pdct-details-modal p-3">
+    <div class="header mb-4 border-bottom">
+      <div class="row">
+        <div class="col-10">
+          <h3 class="pdct-name">
+            {{productDetails.name}}
+          </h3>
+        </div>
+        <div class="col-2">
+          <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('close click')"  (click)="passBack()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="media">
+        <img class="mr-3" src={{productDetails.img}} alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0">
+              {{productDetails.price}} EGP
+          </h5>
+          <p class='pr-2'>{{productDetails.details}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="row">
+        <div class="col-6 offset-3 text-center">
+          <!-- <button type="button" class="btn btn-success" (click)="activeModal.close('Close click')">Add To Cart</button> -->
+          <button *ngIf="cardCartCount === 0" type="button" class="btn primaryBtn" (click)="addToCart()">Add To Cart</button>
+          <div *ngIf="cardCartCount > 0" class="addedToCartIcon">
+            <!-- <a (click)='decrementCart()'>-</a>
+            <span>{{cardCartCount}}</span>
+            <a (click)='incrementCart()'>+</a> -->
+            <a (click)='decrementCart()' class="txt-primary">
+              <i class="fas fa-minus txt-primary"></i>
+            </a>
+            <span class="txt-primary">{{cardCartCount}}</span>
+            <a (click)='incrementCart()' class="txt-primary">
+              <i class="fas fa-plus txt-primary"></i>
+            </a>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+  

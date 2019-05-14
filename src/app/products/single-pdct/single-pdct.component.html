@@ -1,0 +1,55 @@
+<div class="container">
+    <!-- grid view -->
+    <div *ngIf="pdctListView === 'grid'" class="card py-3 px-2 shadow-sm">
+      <img class="card-img-top img-fluid" id='pdct-img' src={{product.img}} alt="Card image cap">
+      <a (click)="openLg()" id='btn-details' class="txt-white">view details</a>
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ product.name }}
+        </h5>
+        <h6 class="card-text">
+          {{ product.category }}
+        </h6>
+        <p class="card-text">
+          {{ product.price }} EGP
+        </p>
+        <a *ngIf="cardCartCount === 0" class="btn primaryBtn" (click)='addToCart()' id='add-to-cart'>Add To Cart</a>
+        <div *ngIf="cardCartCount > 0" class="addedToCartIcon">
+          <a (click)='decrementCart()'>
+            <i class="fas fa-minus txt-primary"></i>
+          </a>
+          <span class="txt-primary">{{cardCartCount}}</span>
+          <a (click)='incrementCart()'>
+            <i class="fas fa-plus txt-primary"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- list view -->
+    <div *ngIf="pdctListView === 'list'" class="media border border-light py-5 pl-3 shadow-sm">
+      <img class="mr-4" src={{product.img}} alt="Generic placeholder image">
+      <a (click)="openLg()" id='btn-details' class="txt-white">view details</a>
+      <div class="media-body">
+        <h5 class="mt-0">
+          {{ product.name }}
+        </h5>
+        <h6 class="mt-0">
+          {{ product.category }}
+        </h6>
+        {{ product.price }} EGP
+        <div class="cart-icons mt-3">
+          <a *ngIf="cardCartCount === 0" class="btn primaryBtn" (click)='addToCart()' id='add-to-cart'>Add To Cart</a>
+          <div *ngIf="cardCartCount > 0" class="addedToCartIcon">
+            <a (click)='decrementCart()' class="txt-primary">
+              <i class="fas fa-minus txt-primary"></i>
+            </a>
+            <span class="txt-primary">{{cardCartCount}}</span>
+            <a (click)='incrementCart()' class="txt-primary">
+              <i class="fas fa-plus txt-primary"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
