@@ -1,6 +1,6 @@
 # EcommerceApplication
 
-A simple Ecommerce project to apply new concepts learned in AngularJS.
+A simple Ecommerce project to apply new concepts learned in Angular.
 
 ## Technology Stack
 
